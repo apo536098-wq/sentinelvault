@@ -1,85 +1,161 @@
-# 🦞SentinelVault v1.0.0
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python" />
-  <img src="https://img.shields.io/badge/Platform-Kali%20Linux-black?style=flat-square&logo=linux" />
-  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" />
-  <img src="https://img.shields.io/badge/Crypto-AES--256-red?style=flat-square" />
+<div align="center">
+🦀 SentinelVault
+Yerel Siber Güvenlik Kontrol Merkezi & Akıllı Kasa
+<p>
+  <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Kali%20Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white" />
+  <img src="https://img.shields.io/badge/AES--256-GCM-red?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 </p>
-Kali Linux ortamları için geliştirilmiş, ofansif sızıntı taraması ve defansif veri güvenliği (DLP) yeteneklerini tek çatı altında birleştiren Yerel Siber Güvenlik Kontrol Merkezi ve Akıllı Kasa.
-SentinelVault; kriptografik şifre yönetimini, canlı ağ trafiği anomalilerini ve kaynak kod sızıntı analizlerini modüler bir mimariyle tek merkezden (CLI + Web Dashboard) yönetmenizi sağlar.
-🎯 Mimari & Çekirdek Motorlar
-Table
-Modül
-Teknoloji
-Görev
-🔐 Secure Vault
- cryptography  (AES-256-GCM)
-Yerel şifrelenmiş veri kasası, master key ile kilit/açma
-📡 Network Monitor
- psutil  + async I/O
-Canlı giriş-çıkış trafiği izleme, anomali tespiti
-🛡️ Intrusion Guard
-IPTables /  socket  + regex
-Brute-force & yetkisiz erişim algılama, otomatik IP kara listeleme
-⚠️ Secret Scanner
-Özel regex motoru + FP filtre
-API Key, Slack Webhook, Private Key avlama, yalancı pozitif önleme
-🌐 Cyber Dashboard
-Flask + async JS (WebSocket)
-Karanlık temalı, gerçek zamanlı tehdit ve trafik görselleştirme
+Kali Linux ortamları için geliştirilmiş, ofansif sızıntı taraması ve defansif veri güvenliği (DLP) yeteneklerini tek çatı altında birleştiren modüler siber güvenlik platformu.
+</div>
+
+📸 Önizleme
+
+┌─────────────────────────────────────────────────────────────┐
+│  🛡️ SENTINELVAULT v1.0.0                                    │
+│                                                             │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐          │
+│  │  🔐 VAULT   │  │ 📡 MONITOR  │  │ 🛡️ GUARD    │          │
+│  │   Secure    │  │   Active    │  │   Alert     │          │
+│  │   12 items  │  │  ↑ 2.4 MB/s │  │  0 threats  │          │
+│  └─────────────┘  └─────────────┘  └─────────────┘          │
+│                                                             │
+│  ⚠️ Secret Scanner: 3 API keys detected in ./src          │
+│  🌐 Dashboard: http://127.0.0.1:5000  [LIVE]               │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+
+✨ Özellikler
+<div align="center">
+🔐 Secure Vault	📡 Network Monitor	🛡️ Intrusion Guard	
+`cryptography` ile AES-256-GCM şifreleme	`psutil` ile asenkron canlı trafik izleme	Brute-force & yetkisiz erişim tespiti	
+Terminal tabanlı kilit/açma mekanizması	Gerçek zamanlı Sent/Recv analizi	Otomatik IP kara listeleme	
+
+⚠️ Secret Scanner	🌐 Cyber Dashboard	
+API Key, Slack Webhook, Private Key avlama	Flask + async JS mimarisi	
+Gelişmiş False-Positive filtre katmanı	Karanlık tema, canlı tehdit analizi	
+</div>
+
+🏗️ Mimari
+                    ┌─────────────────┐
+                    │   SentinelVault │
+                    │     (CLI/API)   │
+                    └────────┬────────┘
+                             │
+        ┌────────────────────┼────────────────────┐
+        │                    │                    │
+        ▼                    ▼                    ▼
+┌───────────────┐    ┌───────────────┐    ┌───────────────┐
+│  🔐 Crypto    │    │  📡 Monitor   │    │  🛡️ Guard     │
+│   Engine      │    │   Network     │    │   Intrusion   │
+│  (AES-256)    │    │   (psutil)    │    │   Detection   │
+└───────────────┘    └───────────────┘    └───────────────┘
+        │                    │                    │
+        └────────────────────┼────────────────────┘
+                             │
+                    ┌────────┴────────┐
+                    │  🌐 Dashboard   │
+                    │  (Flask + JS)   │
+                    └─────────────────┘
+
+
 📁 Proje Yapısı
 sentinelvault/
+│
 ├── sentinelvault/
 │   ├── __init__.py
-│   ├── cli.py               # Ana Komut Satırı Arayüzü (Click)
+│   ├── cli.py                    # Ana CLI (Click)
+│   │
 │   ├── core/
-│   │   ├── config.py        # Sistem Konfigürasyonu
-│   │   └── database.py      # SQLite Veritabanı Katmanı
+│   │   ├── config.py             # Sistem konfigürasyonu
+│   │   └── database.py           # SQLite veritabanı katmanı
+│   │
 │   ├── crypto/
-│   │   ├── engine.py        # Kriptografi Motoru (AES-256)
-│   │   └── vault.py         # Kasa Mantığı ve Şifre Yönetimi
+│   │   ├── engine.py             # AES-256-GCM kriptografi motoru
+│   │   └── vault.py              # Kasa mantığı & şifre yönetimi
+│   │
 │   ├── guard/
-│   │   └── intrusion.py     # Sızma Engelleme ve IP Bloklama
+│   │   └── intrusion.py          # Sızma engelleme & IP bloklama
+│   │
 │   ├── monitor/
-│   │   └── network.py       # Canlı Ağ Trafiği İzleme
+│   │   └── network.py            # Canlı ağ trafiği izleme (async)
+│   │
 │   ├── scanner/
-│   │   └── secrets.py       # Kod İçi Sızıntı Tarayıcı (Regex)
+│   │   └── secrets.py            # Statik kod analizi & sızıntı tarayıcı
+│   │
 │   └── web/
-│       ├── app.py           # Flask Web Sunucusu & API
+│       ├── app.py                # Flask API & sunucu
 │       └── templates/
-│           └── dashboard.html # Siber Görsel Kontrol Paneli
-├── setup.py                 # Sistem Entegrasyon Dosyası
-└── .gitignore               # Güvenli Git Muafiyet Listesi
+│           └── dashboard.html      # Dark mode operasyon paneli
+│
+├── setup.py                      # Pip kurulum & entry points
+├── requirements.txt              # Bağımlılıklar
+└── .gitignore                    # Güvenli git muafiyet listesi
 
-🚀 Kurulum ve Kali Entegrasyonu
-Projenin kurulacağı dizine gidin ve Kali'nin Python korumasını (PEP 668) izole etmek için bir sanal ortam oluşturup aktifleştirin:
+🚀 Kurulum
+⚠️ Kali Linux'ta PEP 668 koruması aktiftir. Sanal ortam kullanımı zorunludur.
+# 1. Depoyu klonlayın
+git clone https://github.com/kullaniciadi/sentinelvault.git
+cd sentinelvault
 
-Bash
-# Sanal ortamı kurun ve içine girin
+# 2. Sanal ortam oluşturun ve aktifleştirin
 python3 -m venv venv
 source venv/bin/activate
 
-# Projeyi sisteme küresel (global) bir komut olarak bağlayın
+# 3. Projeyi kurun
 pip install -e .
 
-💻 Operasyonel Kullanım (CLI Commands)
-SentinelVault kurulduktan sonra terminalde doğrudan aşağıdaki komutlarla tetiklenebilir:
 
-Bash
-# 1. Altyapıyı ilklendirin
+💻 Kullanım
+# Altyapıyı ilklendirin
 sentinelvault init
 
-# 2. Kasayı oluşturun ve ana şifrenizi belirleyin
+# Kasa oluşturun ve master şifrenizi belirleyin
 sentinelvault vault init
 
-# 3. Canlı ağ izleme motorunu arka planda ateşleyin
+# Canlı ağ izleme motorunu başlatın
 sentinelvault monitor start
 
-# 4. Kaynak kod sızıntı taramasını başlatın
-sentinelvault scanner run ./
+# Kaynak kod sızıntı taraması (rekürsif)
+sentinelvault scanner run ./proje-dizini
 
-# 5. Görsel web panelini canlıya alın
+# Web operasyon merkezini canlıya alın
 sentinelvault dashboard
-Sistem ayağa kalktıktan sonra tarayıcınızdan http://127.0.0.1:5000 adresine giderek siber operasyon merkezine erişebilirsiniz.
 
-⚡ Geliştirici: Abdulkadir Erkan - Siber Güvenlik Teknolojisi Bölümü Projesi
+🌐 Dashboard:  http://127.0.0.1:5000 
+
+
+🛠️ Teknik Detaylar
+Bileşen	Teknoloji	Versiyon	
+Şifreleme	`cryptography` (AES-256-GCM)	≥ 3.4	
+CLI Framework	`Click`	≥ 8.0	
+Web Framework	`Flask`	≥ 2.0	
+Ağ İzleme	`psutil`	≥ 5.9	
+Veritabanı	`SQLite3`	Built-in	
+Async	`asyncio`	Built-in	
+
+
+🧪 Komut Referansı
+Komut	Açıklama	
+`sentinelvault init`	Altyapıyı ilklendirir (DB, log dizinleri)	
+`sentinelvault vault init`	Yeni şifreli kasa oluşturur	
+`sentinelvault vault unlock`	Kasayı açar	
+`sentinelvault monitor start`	Ağ izleme motorunu başlatır	
+`sentinelvault monitor status`	İzleme durumunu gösterir	
+`sentinelvault scanner run <path>`	Dizinde sızıntı taraması yapar	
+`sentinelvault dashboard`	Web panelini başlatır	
+`sentinelvault --version`	Versiyon bilgisi	
+
+
+👤 Geliştirici
+<div align="center">
+Abdulkadir Erkan
+Siber Güvenlik Teknolojisi Bölümü — Bitirme Projesi 
+</div>
+<div align="center">
+"Güvenlik bir ürün değil, süreçtir." 
+⬆ Yukarı Git | 🌟 Yıldız ver | 🍴 Forkla
+</div>
