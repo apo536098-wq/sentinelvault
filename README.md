@@ -1,24 +1,33 @@
-# 🦞 SentinelVault v1.0.0
-
-SentinelVault, Kali Linux ortamları için geliştirilmiş, hem ofansif sızıntı taraması yapabilen hem de defansif veri güvenliği (DLP) sağlayan **Yerel Siber Güvenlik Kontrol Merkezi ve Akıllı Kasa** projesidir.
-
-Proje; kriptografik şifre yönetimini, canlı ağ trafiği anomalilerini ve kaynak kod sızıntı analizlerini tek bir merkezden (CLI ve Web Dashboard) yönetmek üzere modüler olarak tasarlanmıştır.
-
----
-
-## 🎯 Temel Özellikler & Çekirdek Motorlar
-
-* **🔐 Secure Vault:** `cryptography` kütüphanesi kullanılarak AES-256 ile şifrelenmiş, terminal üzerinden kilitlenip açılabilen yerel veri kasası.
-* **📡 Network Monitor:** Arka planda (`psutil`) asenkron olarak çalışan, canlı veri giriş-çıkış (Sent/Recv) trafiğini izleyen DLP motoru.
-* **🛡️ Intrusion Guard:** Brute-force ve yetkisiz erişim denemelerini tespit ederek şüpheli IP'leri kara listeye alan savunma kalkanı.
-* **⚠️ Secret Scanner:** Kod kaynaklarında unutulan API Key, Slack Webhook ve Özel Anahtarları avlayan, gelişmiş False-Positive (Yalancı Pozitif) filtre katmanına sahip statik analizör.
-* **🌐 Cyber Dashboard:** Flask backend ve asenkron JavaScript mimarisiyle tarayıcı üzerinden canlı trafik ve tehdit analizi sunan karanlık temalı (`Dark Mode`) kontrol paneli.
-
----
-
-## 📁 Proje Yapısı
-
-```text
+# 🦞SentinelVault v1.0.0
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python" />
+  <img src="https://img.shields.io/badge/Platform-Kali%20Linux-black?style=flat-square&logo=linux" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/Crypto-AES--256-red?style=flat-square" />
+</p>
+Kali Linux ortamları için geliştirilmiş, ofansif sızıntı taraması ve defansif veri güvenliği (DLP) yeteneklerini tek çatı altında birleştiren Yerel Siber Güvenlik Kontrol Merkezi ve Akıllı Kasa.
+SentinelVault; kriptografik şifre yönetimini, canlı ağ trafiği anomalilerini ve kaynak kod sızıntı analizlerini modüler bir mimariyle tek merkezden (CLI + Web Dashboard) yönetmenizi sağlar.
+🎯 Mimari & Çekirdek Motorlar
+Table
+Modül
+Teknoloji
+Görev
+🔐 Secure Vault
+ cryptography  (AES-256-GCM)
+Yerel şifrelenmiş veri kasası, master key ile kilit/açma
+📡 Network Monitor
+ psutil  + async I/O
+Canlı giriş-çıkış trafiği izleme, anomali tespiti
+🛡️ Intrusion Guard
+IPTables /  socket  + regex
+Brute-force & yetkisiz erişim algılama, otomatik IP kara listeleme
+⚠️ Secret Scanner
+Özel regex motoru + FP filtre
+API Key, Slack Webhook, Private Key avlama, yalancı pozitif önleme
+🌐 Cyber Dashboard
+Flask + async JS (WebSocket)
+Karanlık temalı, gerçek zamanlı tehdit ve trafik görselleştirme
+📁 Proje Yapısı
 sentinelvault/
 ├── sentinelvault/
 │   ├── __init__.py
