@@ -153,7 +153,7 @@ Komut	Açıklama
 👤 Geliştirici
 <div align="center">
 Abdulkadir Erkan
-Siber Güvenlik Teknolojisi Bölümü — Bitirme Projesi 
+Siber Güvenlik Teknolojisi Bölümü 
 </div>
 <div align="center">
 "Güvenlik bir ürün değil, süreçtir." 
