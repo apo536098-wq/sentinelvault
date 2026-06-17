@@ -7,6 +7,7 @@ SentinelVault v1.0.0
 </p>
 Kali Linux ortamları için geliştirilmiş, ofansif sızıntı taraması ve defansif veri güvenliği (DLP) yeteneklerini tek çatı altında birleştiren Yerel Siber Güvenlik Kontrol Merkezi ve Akıllı Kasa.
 SentinelVault; kriptografik şifre yönetimini, canlı ağ trafiği anomalilerini ve kaynak kod sızıntı analizlerini modüler bir mimariyle tek merkezden (CLI + Web Dashboard) yönetmenizi sağlar.
+
 🎯 Mimari & Çekirdek Motorlar
 Table
 Modül	Teknoloji	Görev
@@ -127,6 +128,7 @@ Table
 API Key, Slack Webhook, Private Key avlama	Flask + async JS mimarisi
 Gelişmiş False-Positive filtre katmanı	Karanlık tema, canlı tehdit analizi
 </div>
+
 🏗️ Mimari
 plain
                     ┌─────────────────┐
@@ -182,6 +184,7 @@ sentinelvault/
 ├── setup.py                      # Pip kurulum & entry points
 ├── requirements.txt              # Bağımlılıklar
 └── .gitignore                    # Güvenli git muafiyet listesi
+
 🚀 Kurulum
 ⚠️ Kali Linux'ta PEP 668 koruması aktiftir. Sanal ortam kullanımı zorunludur.
 bash
@@ -212,6 +215,7 @@ sentinelvault scanner run ./proje-dizini
 # Web operasyon merkezini canlıya alın
 sentinelvault dashboard
 🌐 Dashboard: http://127.0.0.1:5000
+
 🛠️ Teknik Detaylar
 Table
 Bileşen	Teknoloji	Versiyon
@@ -221,6 +225,7 @@ Web Framework	Flask	≥ 2.0
 Ağ İzleme	psutil	≥ 5.9
 Veritabanı	SQLite3	Built-in
 Async	asyncio	Built-in
+
 🧪 Komut Referansı
 Table
 Komut	Açıklama
@@ -232,6 +237,7 @@ sentinelvault monitor status	İzleme durumunu gösterir
 sentinelvault scanner run <path>	Dizinde sızıntı taraması yapar
 sentinelvault dashboard	Web panelini başlatır
 sentinelvault --version	Versiyon bilgisi
+
 👤 Geliştirici
 <div align="center">
 Abdulkadir Erkan
