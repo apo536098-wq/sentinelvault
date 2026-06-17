@@ -215,9 +215,3 @@ sentinelvault dashboard
 
 </div>
 """
-
-with open('/mnt/agents/output/README.md', 'w', encoding='utf-8') as f:
-    f.write(readme_content)
-
-print("README.md oluşturuldu!")
-print(f"Dosya boyutu: {len(readme_content)} karakter")
