@@ -201,7 +201,7 @@ sentinelvault dashboard
 
 **Abdulkadir Erkan**
 
-*Siber Güvenlik Teknolojisi Bölümü — Bitirme Projesi*
+*Siber Güvenlik Teknolojisi Bölümü'
 
 </div>
 
